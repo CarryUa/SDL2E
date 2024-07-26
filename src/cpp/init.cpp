@@ -5,6 +5,8 @@
 #include <init.h>
 InitArgs initArgs;
 App app;
+SDL_KeyboardEvent *keyboardEvent;
+SDL_Color bgColor;
 void init()
 {
     IMG_Init(initArgs.IMGFlags);

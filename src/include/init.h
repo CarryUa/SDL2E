@@ -13,6 +13,7 @@ struct InitArgs
     Uint32 WindowFlags;
     Uint32 RendererFlags = SDL_RENDERER_ACCELERATED;
 };
+extern SDL_KeyboardEvent *keyboardEvent;
 extern InitArgs initArgs;
-void init(InitArgs args);
+void init();
 #endif
