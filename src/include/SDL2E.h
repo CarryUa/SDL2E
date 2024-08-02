@@ -36,14 +36,35 @@ public:
     SDL_Texture *getTexture() { return texture; }
 };
 
+/**
+ * @struct InitArgs
+ * @brief Holds initialization arguments for setting up a graphical window.
+ *
+ * This structure is used to pass configuration parameters for initializing
+ * a graphical window and renderer. It includes options for window size, title,
+ * and various initialization flags.
+ *
+ * Parameters in order:
+ *
+ * @param title
+ * @param windowW If not set = SCREEN_W.
+ * @param windowH If not set = SCREEN_H.
+ * @param rendererIndex If not set = -1.
+ * @param IMGFlags If not set = NULL.
+ * @param MIXFlags Used for audio. If not set = NULL.
+ * @param InitFlags If not set = NULL.
+ * @param WindowFlags
+ * @param RendererFlags If not set = SDL_RENDERER_ACCELERATED.
+ */
 struct InitArgs
 {
     const char *title;
     int windowW = SCREEN_W;
     int windowH = SCREEN_H;
     int rendererIndex = -1;
-    int IMGFlags = IMG_INIT_JPG;
-    Uint32 Initflags = SDL_INIT_VIDEO;
+    int IMGFlags;
+    int MIXFlags;
+    Uint32 Initflags;
     Uint32 WindowFlags;
     Uint32 RendererFlags = SDL_RENDERER_ACCELERATED;
 };
@@ -51,4 +72,5 @@ extern SDL_KeyboardEvent *keyboardEvent;
 extern InitArgs initArgs;
 void init();
 void LogAplication(SDL_LogPriority priority, const char *fmt, ...);
+void LogError(SDL_LogPriority priority, const char *fmt, ...);
 #endif
