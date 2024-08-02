@@ -1,8 +1,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
-#include <defines.h>
-#include <structs.h>
-#include <init.h>
+#include <SDL2E.h>
+#include <cstdarg>
 InitArgs initArgs;
 App app;
 SDL_KeyboardEvent *keyboardEvent;
@@ -18,4 +17,11 @@ void init()
     }
     app.window = SDL_CreateWindow(initArgs.title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, initArgs.windowW, initArgs.windowH, initArgs.WindowFlags);
     app.renderer = SDL_CreateRenderer(app.window, initArgs.rendererIndex, initArgs.RendererFlags);
+}
+void LogAplication(SDL_LogPriority priority, const char *fmt, ...)
+{
+    va_list args;
+    va_start(args, fmt);
+    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, priority, fmt, va_arg(args, const char *));
+    va_end(args);
 }

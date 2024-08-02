@@ -1,6 +1,6 @@
 #include <SDL.h>
 #include <SDL_image.h>
-#include <structs.h>
+#include <SDL2E.h>
 void processScene(SDL_Color bgColor)
 {
     SDL_SetRenderDrawColor(app.renderer, bgColor.r, bgColor.g, bgColor.b, bgColor.a); // sets background color
