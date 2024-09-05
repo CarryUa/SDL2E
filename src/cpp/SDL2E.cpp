@@ -43,15 +43,3 @@ void LogError(const char *fmt, ...)
     SDL_LogMessage(SDL_LOG_CATEGORY_ERROR, SDL_LOG_PRIORITY_ERROR, fmt, va_arg(args, const char *));
     va_end(args);
 }
-
-/*
-g++ -Lsrc/lib -Isrc/include -c src/cpp/SDL2E.cpp -o SDL2E.o
-g++ -Lsrc/lib -Isrc/include -c src/cpp/SDL2E_video.cpp -o SDL2E_video.o
-g++ -Lsrc/lib -Isrc/include -c src/cpp/SDL2E_event.cpp -o SDL2E_event.o
-g++ -Lsrc/lib -Isrc/include -c src/cpp/SDL2E_audio.cpp -o SDL2E_audio.o
-ar rcs libSDL2E.a SDL2E.o SDL2E_video.o SDL2E_event.o SDL2_audio.o
-rm SDL2E.o
-rm SDL2E_audio.o
-rm SDL2E_video.o
-rm SDL2E_event.o
-*/
