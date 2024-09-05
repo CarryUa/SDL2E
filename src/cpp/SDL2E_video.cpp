@@ -1,6 +1,6 @@
-#include <SDL.h>
 #include <SDL_image.h>
 #include <SDL2E.h>
+#include <SDL2E_video.h>
 void processScene(SDL_Color bgColor)
 {
     SDL_SetRenderDrawColor(app.renderer, bgColor.r, bgColor.g, bgColor.b, bgColor.a); // sets background color
@@ -9,8 +9,7 @@ void processScene(SDL_Color bgColor)
 SDL_Texture *loadTexture(const char *filePath)
 {
     if (IMG_LoadTexture(app.renderer, filePath) == NULL)
-
-        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "can`t load texture");
+        LogError("Can`t load texture %s", IMG_GetError());
 
     SDL_Texture *texture = IMG_LoadTexture(app.renderer, filePath); // load image as SDL_Texture
 
