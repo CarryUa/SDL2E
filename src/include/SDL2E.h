@@ -1,9 +1,10 @@
 #ifndef SDL2E_H
 #define SDL2E_H
-#define SCREEN_W 1280
-#define SCREEN_H 740
 #include <SDL.h>
 #include <SDL_image.h>
+#include <windows.h>
+#define SCREEN_W GetSystemMetrics(SM_CXSCREEN);
+#define SCREEN_H GetSystemMetrics(SM_CYSCREEN);
 struct App
 {
     SDL_Window *window;
